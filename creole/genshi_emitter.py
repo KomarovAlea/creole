@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-ur"""
+r"""
 Test cases contributed by Jan Klopper (janklopper@underdark.nl),
 modified by Radomir Dopieralski (MoinMoin:RadomirDopieralski).
 

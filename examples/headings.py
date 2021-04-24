@@ -1,7 +1,7 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
-import creole
+from .. import creole
+
 
 class HtmlEmitter(creole.HtmlEmitter):
     """
@@ -23,6 +23,7 @@ class Rules(creole.Rules):
     We don't need it in this particular case though, so we just leave
     it like the original class.
     """
+
 
 class Parser(creole.Parser):
     r"""
@@ -79,7 +80,8 @@ class Parser(creole.Parser):
         self.cur = parent
         self.text = None
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
 #    import sys
 #    raw = unicode(sys.stdin.read(), 'utf-8', 'ignore')
 #    rules = Rules()

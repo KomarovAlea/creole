@@ -1,7 +1,6 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-ur"""
+r"""
 WikiCreole to HTML converter
 This program is an example of how the creole.py WikiCreole parser
 can be used.
@@ -141,8 +140,8 @@ XXX This might be considered a bug, but it's impossible to detect in general.
 
 import re
 
-from creole.parser import Parser
-from creole.rules import LinkRules
+from .parser import Parser
+from .rules import LinkRules
 
 
 class HtmlEmitter(object):
@@ -277,9 +276,10 @@ class HtmlEmitter(object):
 
         return self.emit_node(self.root)
 
-if __name__=="__main__":
+
+if __name__ == "__main__":
     import sys
-    document = Parser(unicode(sys.stdin.read(), 'utf-8', 'ignore')).parse()
+    document = Parser(str(sys.stdin.read(), 'utf-8', 'ignore')).parse()
     sys.stdout.write(HtmlEmitter(document).emit().encode('utf-8', 'ignore'))
 
 

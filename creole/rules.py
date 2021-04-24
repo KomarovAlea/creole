@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 
 import re
 import sys
@@ -128,7 +127,7 @@ class Rules(object):
         # For inline elements:
         if url_protocols is not None:
             self.proto = '|'.join(re.escape(p) for p in url_protocols)
-        self.url =  r'''(?P<url>
+        self.url = r'''(?P<url>
             (^ | (?<=\s | [.,:;!?()/=]))
             (?P<escaped_url>~)?
             (?P<url_target> (?P<url_proto> %s ):\S+? )
@@ -139,9 +138,9 @@ class Rules(object):
                            self.escape, self.char]
         if wiki_words:
             import unicodedata
-            up_case = u''.join(unichr(i) for i in xrange(sys.maxunicode)
-                               if unicodedata.category(unichr(i))=='Lu')
-            self.wiki = ur'''(?P<wiki>[%s]\w+[%s]\w+)''' % (up_case, up_case)
+            up_case = u''.join(chr(i) for i in range(sys.maxunicode)
+                               if unicodedata.category(chr(i)) == 'Lu')
+            self.wiki = r'''(?P<wiki>[%s]\w+[%s]\w+)''' % (up_case, up_case)
             inline_elements.insert(3, self.wiki)
         self.inline_re = c('|'.join(inline_elements), re.X | re.U)
 
